@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'https://project-management-tool-fej1.onrender.com' });
+// Use Render backend URL instead of localhost
+const API = axios.create({ baseURL: 'https://project-management-tool-fej1.onrender.com/api' });
 
 export const fetchProjects = () => API.get('/projects');
 export const createProject = (newProject) => API.post('/projects', newProject);
