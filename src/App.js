@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ProjectList from './components/ProjectList';
+import ProjectForm from './components/ProjectForm';
+import ProjectDetails from './components/ProjectDetails';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<ProjectList />} />
+        <Route path="/create" element={<ProjectForm onProjectCreated={() => window.location.href = '/'} />} />
+        <Route path="/project/:id" element={<ProjectDetails />} />
+      </Routes>
+    </Router>
   );
 }
 
